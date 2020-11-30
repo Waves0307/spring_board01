@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.care.board.logMapper">
+	<select id="loglist" resultType="logDto" parameterType="int">
+		select B.* from (select rowNum rn, A.* from (select * from userlog order by num)A)B 
+		where rn between (#{startLog} - 1)*10+1 and #{startLog}*10
+	</select>
+	<select id="countLogNum" resultType="int">
+		select count(*) from userlog 
+	</select>
+	<insert id="saveLog" parameterType="logDto">
+		insert into userlog (num,id,startTime,endTime,resultTime)
+		values (time_number.nextval,#{id},#{startTime,jdbcType=VARCHAR},#{endTime,jdbcType=VARCHAR},#{resultTime})
+	</insert>
+</mapper>

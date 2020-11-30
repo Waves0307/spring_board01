@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.care.mybatis.myMapper">
+	<select id="memberList" resultType="memDto">
+		select * from member02
+	</select>
+	<select id="idChk" resultType="com.care.root.member.dto.MemberDTO">
+		select * from member02 where id=#{id,jdbcType=VARCHAR}
+	</select>
+	
+	<insert id="regist" parameterType="memDto">
+		insert into member02 values (#{id,jdbcType=VARCHAR},
+		#{pw,jdbcType=VARCHAR},#{addr,jdbcType=VARCHAR})
+	</insert>
+</mapper>
