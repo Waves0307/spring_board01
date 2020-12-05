@@ -7,5 +7,7 @@
 		<typeAlias alias="memDto" type="com.care.root.member.dto.MemberDTO"/>
    		<typeAlias alias="brdDto" type="com.care.root.board.dto.BoardDTO"/>
    		<typeAlias alias="logDto" type="com.care.root.log.dto.LogDTO"/>
+   		<typeAlias alias="noticeDto" type="com.care.root.board.dto.NoticeBoardDTO"/>
+  		<typeAlias alias="logCountDto" type="com.care.root.log.dto.LoginCountDTO"/>
    </typeAliases>
 </configuration>
